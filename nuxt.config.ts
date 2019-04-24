@@ -27,12 +27,15 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: 'rgb(0, 103, 127)' },
 
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/app.styl'],
+  css: [
+    '~/assets/Fonts/IRANSans5_5/IRANSans/WebFonts/css/fontiran.css',
+    '~/assets/style/app.styl'
+  ],
 
   /*
    ** Plugins to load before mounting the App
