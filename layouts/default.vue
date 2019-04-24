@@ -26,9 +26,7 @@
     </v-toolbar>
     <v-navigation-drawer v-model="showNavBar" app temporary />
     <v-content>
-      <div class="mx-auto">
-        سلام!
-      </div>
+      <nuxt />
     </v-content>
   </v-app>
 </template>
@@ -39,7 +37,7 @@ import { Vue, Component } from 'nuxt-property-decorator'
 @Component
 export default class DefaultLayout extends Vue {
   get isLoggedIn(): boolean {
-    return true
+    return false
   }
   texts: { [eng: string]: string } = {
     title: 'بهشتی یار',

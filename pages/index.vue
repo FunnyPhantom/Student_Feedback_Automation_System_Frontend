@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <div>your name is: {{ name }}</div>
-    <input v-model="name" aria-label="299" name="name" />
-    <v-avatar size="40">
-      <img src="https://picsum.photos/70" alt="img" />
-    </v-avatar>
-  </div>
+  <v-container>
+    <v-layout>
+      <v-flex>
+        صفحه اول!
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
