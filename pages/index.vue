@@ -1,18 +1,41 @@
 <template>
-  <v-container>
-    <v-layout>
-      <v-flex>
-        صفحه اول!
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div>
+    <template v-if="!isLoggedIn">
+      <v-container class="text-xs-center">
+        <v-layout>
+          <v-flex>
+            کارتابل ثبت موارد دانشجویی
+          </v-flex>
+        </v-layout>
+        <v-layout justify-center>
+          <v-flex>
+            برای استفاده از سیستم باید
+            <nuxt-link to="/login">وارد شوید</nuxt-link>
+            یا
+            <nuxt-link to="/register"> ثبت نام</nuxt-link>
+            کنید...
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </template>
+    <template v-else>
+      <template v-if="true">
+        <student-home-view />
+      </template>
+    </template>
+  </div>
 </template>
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-
-@Component
+import { Vue, Component, Getter } from 'nuxt-property-decorator';
+import StudentHomeView from '~/components/StudentHomeView.vue';
+const authNamespace = 'AuthState';
+@Component({
+  components: { StudentHomeView }
+})
 export default class Index extends Vue {
-  name: string = 'sjiojoiwjiofj'
+  name: string = 'sjiojoiwjiofj';
+  @Getter('isLoggedIn', { namespace: authNamespace }) isLoggedIn;
+  @Getter('getLoginLevel', { namespace: authNamespace }) getLoginLevel;
 }
 </script>
 <style></style>

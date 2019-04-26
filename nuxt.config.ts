@@ -1,7 +1,9 @@
-import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
-import pkg from './package.json'
+import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin';
+// eslint-disable-next-line no-unused-vars
+import NuxtConfiguration from '@nuxt/config';
+import pkg from './package.json';
 
-export default {
+const config: NuxtConfiguration = {
   mode: 'universal',
 
   /*
@@ -73,13 +75,15 @@ export default {
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
+        config.module!.rules.push({
           enforce: 'pre',
-          test: /\.(js|vue)$/,
+          test: /\.(js|ts|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   }
-}
+};
+
+export default config;
