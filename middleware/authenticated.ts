@@ -1,5 +1,4 @@
-export default function({ store, redirect }) {
-  if (!store.getters['AuthState/getLogin']) {
-    redirect('/');
-  }
+export default function(ctx: { store; redirect }) {
+  console.log('hi middleware');
+  console.log(Object.keys(ctx));
 }

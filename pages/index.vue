@@ -36,6 +36,17 @@ export default class Index extends Vue {
   name: string = 'sjiojoiwjiofj';
   @Getter('isLoggedIn', { namespace: authNamespace }) isLoggedIn;
   @Getter('getLoginLevel', { namespace: authNamespace }) getLoginLevel;
+
+  public async axiosstuff() {
+    const d = (await this.$axios.post('/api/v2/employee/register', {
+      firstName: 'ali',
+      lastName: 'aliabadi',
+      username: 'mamadeshoon',
+      password: 'passwordeshoon',
+      jobTitle: 'jobtitleshoon'
+    })).status;
+    console.log(d);
+  }
 }
 </script>
 <style></style>

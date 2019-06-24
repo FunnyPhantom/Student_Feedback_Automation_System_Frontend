@@ -53,6 +53,8 @@ import { Vue, Component, Getter } from 'nuxt-property-decorator';
 import { UserLevels } from '~/models/UserLevels';
 // eslint-disable-next-line no-unused-vars
 import MenuItem from '~/models/MenuItem';
+// eslint-disable-next-line no-unused-vars
+import { initializeAuthStore } from '~/modules/AuthModule';
 
 const AuthNamespace = 'AuthState';
 
@@ -100,6 +102,9 @@ export default class DefaultLayout extends Vue {
 
   toggleNavBar() {
     this.showNavBar = !this.showNavBar;
+  }
+  mounted() {
+    // initializeAuthStore(this.$storage, this.$axios);
   }
 }
 </script>

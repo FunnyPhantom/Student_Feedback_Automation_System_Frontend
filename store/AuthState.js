@@ -3,7 +3,7 @@ import { UserLevels } from '~/models/UserLevels';
 // import { User } from '~/models/User';
 
 export const state = () => ({
-  loginStatus: UserLevels.STUDENT,
+  loginStatus: UserLevels.NOT_LOGGED_IN,
   currentUser: {}
 });
 

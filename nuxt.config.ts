@@ -25,7 +25,6 @@ const config: NuxtConfiguration = {
       }
     ]
   },
-
   /*
    ** Customize the progress-bar color
    */
@@ -49,6 +48,7 @@ const config: NuxtConfiguration = {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    'nuxt-universal-storage',
     '@nuxtjs/axios'
   ],
   /*
@@ -56,8 +56,8 @@ const config: NuxtConfiguration = {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'http://localhost/api/v2'
   },
-
   /*
    ** Build configuration
    */
