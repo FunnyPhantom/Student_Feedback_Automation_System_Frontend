@@ -23,13 +23,13 @@ export async function getIssueById(
   };
 }
 
-const apiUrl = "http://localhost:8082";
+const apiUrl = "http://localhost/api/v2";
 
 export function registerUserApi(
   registerEntry: RegisterEntry,
   axios: NuxtAxiosInstance
 ) {
-  return axios.$post(`${apiUrl}/auth/register`, registerEntry, {
+  return axios.$post(`${apiUrl}/student/register`, registerEntry, {
     headers: {
       "Content-Type": "application/json"
     }
