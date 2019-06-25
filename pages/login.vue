@@ -1,9 +1,9 @@
 <template>
   <v-container fill-height>
     <v-layout justify-center>
-      <v-flex xs12 md8 lg6>
+      <v-flex lg6 md8 xs12>
         <v-card>
-          <v-toolbar color="blue darken-1" class="theme--dark">
+          <v-toolbar class="theme--dark" color="blue darken-1">
             <v-toolbar-title class="ma-auto">
               ورود
             </v-toolbar-title>
@@ -11,25 +11,25 @@
           <v-card-text>
             <v-form>
               <v-text-field
-                v-model="loginEntry.username"
+                class="ml-4 pl-2"
                 label="نام کاربری"
                 prepend-icon="person"
-                class="ml-4 pl-2"
+                v-model="loginEntry.username"
               ></v-text-field>
               <v-text-field
-                v-model="loginEntry.password"
+                class="ml-4 pl-2"
                 label="رمز عبور"
                 prepend-icon="lock"
-                class="ml-4 pl-2"
+                v-model="loginEntry.password"
               ></v-text-field>
               <div class="text-xs-center mt-5">
                 <v-btn
-                  color="blue"
-                  style="width: 130px;"
-                  dark
                   @click="doLogin()"
-                  >ورود</v-btn
-                >
+                  color="blue"
+                  dark
+                  style="width: 130px;"
+                  >ورود
+                </v-btn>
               </div>
               <div>
                 <v-btn @click="getUser()">get user</v-btn>
@@ -43,21 +43,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator';
-import {
-  getUserApi,
-  // eslint-disable-next-line no-unused-vars
-  loginUserApi
-} from '~/api';
+import { Component, Vue } from "nuxt-property-decorator";
+import { getUserApi, loginUserApi } from "~/api";
 // eslint-disable-next-line no-unused-vars
-import LoginEntry from '~/models/LoginEntry';
+import LoginEntry from "~/models/LoginEntry";
 // eslint-disable-next-line no-unused-vars
-import Axios from 'axios';
+
 @Component({})
 export default class Login extends Vue {
   loginEntry: LoginEntry = {
-    username: '',
-    password: ''
+    username: "",
+    password: ""
   };
   $storage: any;
 
@@ -66,7 +62,7 @@ export default class Login extends Vue {
       const d = await loginUserApi(this.loginEntry, this.$axios);
       console.log(d);
       // @ts-ignore
-      this.$storage.setUniversal('AuthToken', d.headers.authorization);
+      this.$storage.setUniversal("AuthToken", d.headers.authorization);
     } catch (e) {
       if (e.response) {
         console.error(e.response.data);
@@ -76,9 +72,10 @@ export default class Login extends Vue {
       }
     }
   }
+
   public async getUser() {
     try {
-      const token = this.$storage.getUniversal('AuthToken');
+      const token = this.$storage.getUniversal("AuthToken");
       const d = await getUserApi(token, this.$axios);
       console.log(d.data);
     } catch (e) {

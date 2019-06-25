@@ -7,7 +7,7 @@
         </div>
       </v-flex>
       <v-flex class="text-xs-left">
-        <v-btn dark color="primary" @click="openNewIssueDialog()">
+        <v-btn @click="openNewIssueDialog()" color="primary" dark>
           <v-icon>
             add
           </v-icon>
@@ -34,28 +34,32 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Component, Vue } from "nuxt-property-decorator";
 // eslint-disable-next-line no-unused-vars
-import Issue from '~/models/Issue';
-import { getStuff } from '~/api';
-import IssuePreview from '~/components/IssuePreview.vue';
-import NewIssueDialog from '~/components/NewIssueDialog.vue';
+import Issue from "~/models/Issue";
+import { getStuff } from "~/api";
+import IssuePreview from "~/components/IssuePreview.vue";
+import NewIssueDialog from "~/components/NewIssueDialog.vue";
 
 @Component({
   components: { NewIssueDialog, IssuePreview }
 })
 export default class StudentHomeView extends Vue {
   userIssues: Array<Issue> = [];
+
   // populate userIssues is Issues from backend
   getIssues() {
     getStuff().then(value => {
       this.userIssues = value.data;
     });
   }
+
   showNewIssueDialog: boolean = false;
+
   openNewIssueDialog() {
     this.showNewIssueDialog = true;
   }
+
   mounted(): void {
     this.getIssues();
   }

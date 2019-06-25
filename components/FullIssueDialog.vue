@@ -40,7 +40,7 @@
                 {{
                   issueModelData.issueDescription
                     ? issueModelData.issueDescription
-                    : '(ندارد.)'
+                    : "(ندارد.)"
                 }}
               </v-layout>
             </v-flex>
@@ -91,10 +91,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
-import { getIssueById } from '~/api';
+import { Component, Prop, Vue } from "nuxt-property-decorator";
+import { getIssueById } from "~/api";
 // eslint-disable-next-line no-unused-vars
-import Issue, { issueDic, statusDic } from '~/models/Issue';
+import Issue, { issueDic, statusDic } from "~/models/Issue";
 
 @Component
 export default class FullIssueDialog extends Vue {
@@ -105,6 +105,7 @@ export default class FullIssueDialog extends Vue {
   issueModelData: Issue | null = null;
   issueTypeDic = issueDic;
   statusDic = statusDic;
+
   get hasIssueModel() {
     return !!this.issueModelData;
   }

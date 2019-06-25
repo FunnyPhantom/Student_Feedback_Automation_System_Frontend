@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import { Admin, Employee, Student } from '~/models/User';
-import { UserLevels } from '~/models/UserLevels';
+import { Admin, Employee, Student } from "~/models/User";
+import { UserLevels } from "~/models/UserLevels";
 // eslint-disable-next-line no-unused-vars
 import Issue, {
   // eslint-disable-next-line no-unused-vars
@@ -8,45 +8,45 @@ import Issue, {
   IssueActionType,
   IssueStatus,
   IssueType
-} from '~/models/Issue';
+} from "~/models/Issue";
 
 const AliAlavi: Student = {
-  name: 'ali alavi',
-  username: 'ali_alavi',
-  secret: 'n/a',
+  name: "ali alavi",
+  username: "ali_alavi",
+  secret: "n/a",
   userLevel: UserLevels.STUDENT,
   createdIssues: []
 };
 
 const MohammadAmini: Employee = {
-  name: 'محمد امینی',
-  username: '0021822233',
-  secret: 'n/a',
+  name: "محمد امینی",
+  username: "0021822233",
+  secret: "n/a",
   userLevel: UserLevels.EMPLOYEE,
   issuesUnderInvestigation: [],
-  jobTitle: 'مدیر دبیر خانه'
+  jobTitle: "مدیر دبیر خانه"
 };
 const MehrnooshShamsFard = new Admin(
-  'مهرنوش شمس فرد',
-  'm.shamsfard',
-  'رئیس دانشکده کامپیوتر'
+  "مهرنوش شمس فرد",
+  "m.shamsfard",
+  "رئیس دانشکده کامپیوتر"
 );
 
 const loremFarsi: string =
-  'لورم ایپسوم متن ساختگی با تولید' +
-  ' سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها' +
-  ' و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط ' +
-  'فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی ' +
-  'می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان ' +
-  'جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان' +
-  ' رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.';
+  "لورم ایپسوم متن ساختگی با تولید" +
+  " سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها" +
+  " و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط " +
+  "فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی " +
+  "می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان " +
+  "جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان" +
+  " رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد.";
 
 const issueArray: Array<Issue> = [
   {
     relatingStudent: AliAlavi,
     issueStatus: IssueStatus.OPEN,
     issueType: IssueType.COMPLAINT,
-    title: 'اعتراض 1',
+    title: "اعتراض 1",
     issueDescription: loremFarsi,
     creationDate: new Date(),
     relatingEmployee: MohammadAmini,
@@ -57,11 +57,11 @@ const issueArray: Array<Issue> = [
     relatingStudent: AliAlavi,
     issueStatus: IssueStatus.CLOSED,
     issueType: IssueType.CRITICISM,
-    title: 'انتقاد 2',
+    title: "انتقاد 2",
     issueDescription: loremFarsi,
     creationDate: new Date(2019, 3, 21, 17, 25),
     relatingEmployee: MohammadAmini,
-    attachment: 'http://yesno.wtf/api',
+    attachment: "http://yesno.wtf/api",
     issueId: 2,
     actions: []
   },
@@ -69,7 +69,7 @@ const issueArray: Array<Issue> = [
     relatingStudent: AliAlavi,
     issueStatus: IssueStatus.IN_QUEUE,
     issueType: IssueType.DEMANDS,
-    title: 'درخواست 3 یکمی طولانی تر خب ببینیم چی میشه آقا',
+    title: "درخواست 3 یکمی طولانی تر خب ببینیم چی میشه آقا",
     issueDescription: loremFarsi,
     creationDate: new Date(2019, 4, 21, 17, 25),
     issueId: 3,
@@ -80,8 +80,8 @@ const issueArray: Array<Issue> = [
     issueStatus: IssueStatus.POSTPONED,
     issueType: IssueType.PROPOSALS,
     title:
-      'پیشنهاد خیلی خوبی دارم ولی همشو تو تیتر مینویسم هیچیشو تو متن نمیونیسم',
-    issueDescription: '',
+      "پیشنهاد خیلی خوبی دارم ولی همشو تو تیتر مینویسم هیچیشو تو متن نمیونیسم",
+    issueDescription: "",
     creationDate: new Date(2019, 3, 21, 17, 25),
     relatingEmployee: MohammadAmini,
     issueId: 4,

@@ -1,13 +1,15 @@
 // eslint-disable-next-line no-unused-vars
-import { NuxtUniversalStorage } from '~/index';
-import { getUserApi } from '~/api';
+import { NuxtUniversalStorage } from "~/index";
+import { getUserApi } from "~/api";
 // eslint-disable-next-line no-unused-vars
-import { NuxtAxiosInstance } from '~/node_modules/@nuxtjs/axios';
+import { NuxtAxiosInstance } from "~/node_modules/@nuxtjs/axios";
 
 function isUserLoggedIn(): boolean {
   return false;
 }
-const authTokenKey = 'AuthToken';
+
+const authTokenKey = "AuthToken";
+
 async function initializeAuthStore(
   storage: NuxtUniversalStorage,
   axios: NuxtAxiosInstance

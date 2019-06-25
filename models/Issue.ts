@@ -1,26 +1,26 @@
 /* eslint-disable */
-import { Student, Employee, User } from '~/models/User';
+import { Employee, Student, User } from "~/models/User";
 
 export default interface Issue {
-  issueId: string | number
-  issueType: IssueType
-  title: string
-  issueDescription?: string
-  relatingStudent: Student
-  attachment?: any
-  relatingEmployee?: Employee
-  issueStatus: IssueStatus
-  creationDate: Date,
-  actions: Array<IssueAction>
+  issueId: string | number;
+  issueType: IssueType;
+  title: string;
+  issueDescription?: string;
+  relatingStudent: Student;
+  attachment?: any;
+  relatingEmployee?: Employee;
+  issueStatus: IssueStatus;
+  creationDate: Date;
+  actions: Array<IssueAction>;
 }
 
 export interface IssueAction {
-  readonly index?: number
-  readonly type: { type: IssueActionType, text?: string }
-  readonly date: Date
-  readonly byWho: User
-  readonly toWho?: User
-  readonly correspondingIssue: Issue
+  readonly index?: number;
+  readonly type: { type: IssueActionType; text?: string };
+  readonly date: Date;
+  readonly byWho: User;
+  readonly toWho?: User;
+  readonly correspondingIssue: Issue;
 }
 
 export enum IssueActionType {
@@ -46,46 +46,46 @@ export enum IssueStatus {
 
 export const statusDic: Object = {
   [IssueStatus.OPEN]: {
-    icon: 'info',
-    color: 'info',
-    helpText: 'باز'
+    icon: "info",
+    color: "info",
+    helpText: "باز"
   },
   [IssueStatus.CLOSED]: {
-    icon: 'check_circle',
-    color: 'success',
-    helpText: 'بسته'
+    icon: "check_circle",
+    color: "success",
+    helpText: "بسته"
   },
   [IssueStatus.IN_QUEUE]: {
-    icon: 'help',
-    color: 'info',
-    helpText: 'در حال بررسی'
+    icon: "help",
+    color: "info",
+    helpText: "در حال بررسی"
   },
   [IssueStatus.POSTPONED]: {
-    icon: 'history',
-    color: 'warning',
-    helpText: 'تعویق'
+    icon: "history",
+    color: "warning",
+    helpText: "تعویق"
   }
 };
 
 export const issueDic: Object = {
   [IssueType.COMPLAINT]: {
-    icon: 'warning',
-    color: 'error',
-    helpText: 'شکایت'
+    icon: "warning",
+    color: "error",
+    helpText: "شکایت"
   },
   [IssueType.CRITICISM]: {
-    icon: 'warning',
-    color: 'warning',
-    helpText: 'انتقاد'
+    icon: "warning",
+    color: "warning",
+    helpText: "انتقاد"
   },
   [IssueType.PROPOSALS]: {
-    icon: 'highlight',
-    color: 'info',
-    helpText: 'پیشنهاد'
+    icon: "highlight",
+    color: "info",
+    helpText: "پیشنهاد"
   },
   [IssueType.DEMANDS]: {
-    icon: 'warning',
-    color: 'info',
-    helpText: 'درخواست'
-  },
+    icon: "warning",
+    color: "info",
+    helpText: "درخواست"
+  }
 };

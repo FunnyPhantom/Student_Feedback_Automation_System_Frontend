@@ -4,7 +4,7 @@
       <v-btn @click="registerEmp()"> register emp</v-btn>
       <v-btn @click="registerStud()"> register stud</v-btn>
     </v-layout>
-    <v-layout v-for="(e, i) in stuff" :key="i">
+    <v-layout :key="i" v-for="(e, i) in stuff">
       {{ e }}
     </v-layout>
   </v-container>
@@ -12,13 +12,14 @@
 
 <script lang="ts">
 // eslint-disable-next-line no-unused-vars
-import { Vue, Component } from 'nuxt-property-decorator';
+import { Component, Vue } from "nuxt-property-decorator";
 // eslint-disable-next-line no-unused-vars
-import { EmployeeOutput, StudentOutput } from '~/models';
+import { EmployeeOutput, StudentOutput } from "~/models";
+
 @Component
 export default class TestPage extends Vue {
   stuff: Array<any> = [];
-  names = ['foo', 'bar', 'baz', 'aaa', 'bbb', 'ccc', 'ddd'];
+  names = ["foo", "bar", "baz", "aaa", "bbb", "ccc", "ddd"];
 
   createRandomString(): string {
     return this.names[Math.floor(Math.random() * this.names.length)];
@@ -28,23 +29,24 @@ export default class TestPage extends Vue {
     const empRand: EmployeeOutput = {
       firstName: this.createRandomString(),
       lastName: this.createRandomString(),
-      username: 'mamad',
+      username: "mamad",
       password: this.createRandomString(),
       jobTitle: this.createRandomString()
     };
-    const ans = await this.$axios.$post('/employee/register', empRand);
+    const ans = await this.$axios.$post("/employee/register", empRand);
     console.log(ans);
     this.stuff.push(ans);
   }
+
   async registerStud() {
     const studRand: StudentOutput = {
       firstName: this.createRandomString(),
       lastName: this.createRandomString(),
-      username: 'student',
+      username: "student",
       password: this.createRandomString(),
       studentId: this.createRandomString()
     };
-    const ans = await this.$axios.$post('/student/register', studRand);
+    const ans = await this.$axios.$post("/student/register", studRand);
     console.log(ans);
     this.stuff.push(ans);
   }

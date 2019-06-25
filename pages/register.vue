@@ -1,9 +1,9 @@
 <template>
   <v-container fill-height>
     <v-layout justify-center>
-      <v-flex xs12 md8 lg6>
+      <v-flex lg6 md8 xs12>
         <v-card>
-          <v-toolbar color="blue darken-1" class="theme--dark">
+          <v-toolbar class="theme--dark" color="blue darken-1">
             <v-toolbar-title class="ma-auto">
               ثبت نام
             </v-toolbar-title>
@@ -11,31 +11,31 @@
           <v-card-text>
             <v-form>
               <v-text-field
-                v-model="registerEntry.sid"
+                class="ml-4 pl-2"
                 label="َشماره دانشجویی"
                 prepend-icon="book"
-                class="ml-4 pl-2"
+                v-model="registerEntry.sid"
               ></v-text-field>
               <v-text-field
-                v-model="registerEntry.username"
+                class="ml-4 pl-2"
                 label="نام کاربری"
                 prepend-icon="person"
-                class="ml-4 pl-2"
+                v-model="registerEntry.username"
               ></v-text-field>
               <v-text-field
-                v-model="registerEntry.password"
+                class="ml-4 pl-2"
                 label="رمز عبور"
                 prepend-icon="lock"
-                class="ml-4 pl-2"
+                v-model="registerEntry.password"
               ></v-text-field>
               <div class="text-xs-center mt-5">
                 <v-btn
-                  color="blue"
-                  style="width: 130px;"
-                  dark
                   @click="registerUser()"
-                  >ثبت نام</v-btn
-                >
+                  color="blue"
+                  dark
+                  style="width: 130px;"
+                  >ثبت نام
+                </v-btn>
               </div>
             </v-form>
           </v-card-text>
@@ -49,17 +49,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator';
+import { Component, Vue } from "nuxt-property-decorator";
 // eslint-disable-next-line no-unused-vars
-import RegisterEntry from '~/models/RegisterEntry';
-import { registerUserApi } from '~/api';
+import RegisterEntry from "~/models/RegisterEntry";
+import { registerUserApi } from "~/api";
+
 @Component
 export default class Register extends Vue {
-  name: string = 'mamad';
+  name: string = "mamad";
   registerEntry: RegisterEntry = {
-    username: '',
-    password: '',
-    sid: ''
+    username: "",
+    password: "",
+    sid: ""
   };
   showSuccess: boolean = false;
 

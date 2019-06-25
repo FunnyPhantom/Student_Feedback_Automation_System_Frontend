@@ -2,13 +2,13 @@
   <v-layout>
     <v-flex>
       <v-layout
-        class="pl-3 pt-2 pb-3 round-corner gets-hover"
         @click="openFullIssue()"
+        class="pl-3 pt-2 pb-3 round-corner gets-hover"
       >
         <v-flex>
           <v-layout>
             <v-flex>
-              <v-layout v-if="showIssueCreator" class="caption grey--text pr-2">
+              <v-layout class="caption grey--text pr-2" v-if="showIssueCreator">
                 <div>
                   دانشجوی درخواست دهنده:
                 </div>
@@ -17,11 +17,11 @@
                 </div>
               </v-layout>
               <v-layout>
-                <v-tooltip top class="no-select">
+                <v-tooltip class="no-select" top>
                   <template slot="activator">
                     <v-icon
-                      class="pr-1 pl-1"
                       :color="issueTypeDic[issueModel.issueType].color"
+                      class="pr-1 pl-1"
                     >
                       {{ issueTypeDic[issueModel.issueType].icon }}
                     </v-icon>
@@ -38,7 +38,7 @@
               </v-layout>
             </v-flex>
             <v-flex class="text-xs-left">
-              <v-tooltip top class="no-select">
+              <v-tooltip class="no-select" top>
                 <template slot="activator">
                   <v-icon :color="statusIconDic[issueModel.issueStatus].color">
                     {{ statusIconDic[issueModel.issueStatus].icon }}
@@ -61,8 +61,8 @@
             </v-flex>
           </v-layout>
           <v-layout
-            v-if="showRelatingEmployee && issueModel.relatingEmployee"
             class="pr-3 pt-3"
+            v-if="showRelatingEmployee && issueModel.relatingEmployee"
           >
             <span class="grey--text very-small-text text--darken-2">
               شخص مربوطه:
@@ -77,18 +77,19 @@
       <v-divider />
     </v-flex>
     <full-issue-dialog
-      v-model="showFullIssue"
       :issue-id="issueModel.issueId"
       :issue-model="issueModel"
+      v-model="showFullIssue"
     />
   </v-layout>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator';
+import { Component, Prop, Vue } from "nuxt-property-decorator";
 // eslint-disable-next-line no-unused-vars
-import Issue, { issueDic, statusDic } from '~/models/Issue';
-import FullIssueDialog from '~/components/FullIssueDialog.vue';
+import Issue, { issueDic, statusDic } from "~/models/Issue";
+import FullIssueDialog from "~/components/FullIssueDialog.vue";
+
 @Component({
   components: { FullIssueDialog }
 })
@@ -100,6 +101,7 @@ export default class IssuePreview extends Vue {
   showRelatingEmployee?: boolean;
 
   showFullIssue: boolean = false;
+
   openFullIssue() {
     this.showFullIssue = true;
   }
@@ -114,18 +116,22 @@ export default class IssuePreview extends Vue {
   cursor: default;
   user-select: none;
 }
+
 .gets-hover:hover {
   background: rgba(0, 0, 0, 0.05);
   cursor: pointer;
   transition: 100ms ease-in-out;
 }
+
 .gets-hover:active {
   background: rgba(0, 0, 0, 0.1);
   transition: 80ms ease-out;
 }
+
 .round-corner {
   border-radius: 5px;
 }
+
 .very-small-text {
   font-size: 10px;
 }

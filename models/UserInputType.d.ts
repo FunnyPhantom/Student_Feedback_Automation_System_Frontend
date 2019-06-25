@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { UserRole } from '~/models/UserType';
+import { UserRole } from "~/models/UserType";
 
 export class UserInputType {
   public id: number;
